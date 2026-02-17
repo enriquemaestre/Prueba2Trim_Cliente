@@ -1,0 +1,25 @@
+<h2>Nueva Serie</h2>
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <label>Título:</label>
+  <input type="text" formControlName="title">
+  @if (form.get('title')?.invalid && form.get('title')?.touched) {
+    <p>Mínimo 3 caracteres</p>
+  }
+
+  <label>Canal:</label>
+  <input type="text" formControlName="channel">
+
+  <label>Rating:</label>
+  <input type="number" formControlName="rating">
+
+  <br><br>
+
+  <button type="submit" [disabled]="form.invalid">
+    Crear
+  </button>
+
+</form>
+
+@if (message) {
+  <p>{{ message }}</p>
+}

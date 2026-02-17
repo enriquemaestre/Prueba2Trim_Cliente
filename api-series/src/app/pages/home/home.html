@@ -1,0 +1,20 @@
+<h2>Listado de Series</h2>
+
+@if (loading) {
+  <p>Cargando...</p>
+} @else {
+
+  @if (series.length === 0) {
+    <p>No hay series disponibles.</p>
+  }
+
+  @for (serie of series; track serie.id) {
+    <div>
+      <h3>{{ serie.title }}</h3>
+      <p>Canal: {{ serie.channel }}</p>
+      <p>Rating: {{ serie.rating }}</p>
+      <hr>
+    </div>
+  }
+
+}
